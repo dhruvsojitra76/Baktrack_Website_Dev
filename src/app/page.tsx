@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import './globals.css';
 import ContactUs from '@/Components/Contact/ContactUs';
+import Header from '@/Components/Header/Header';
+import Footer from '@/Components/Footer/Footer';
 
 // Animation hook for scroll-triggered animations
 const useScrollAnimation = () => {
@@ -269,19 +271,19 @@ const InteractiveCardCarousel = () => {
 
                   {/* Conversation */}
                   <div className="space-y-2.5 flex-1 overflow-hidden">
-                {conversation.messages.map((message, msgIndex) => (
-                  <div key={msgIndex} className={`w-full `}>
-                    <div className={`md:max-w-full  ${message.sender === 'User' ? 'bg-white/30' : 'bg-white/20'} rounded-lg p-2 sm:p-2.5`}>
-                      <div className="flex items-center gap-2">
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${message.sender === 'Baktrack' ? 'bg-white/30 text-white' : 'bg-white text-gray-800'}`}>
-                          {message.sender === 'Baktrack' ? 'B' : 'U'}
+                    {conversation.messages.map((message, msgIndex) => (
+                      <div key={msgIndex} className={`w-full `}>
+                        <div className={`md:max-w-full  ${message.sender === 'User' ? 'bg-white/30' : 'bg-white/20'} rounded-lg p-2 sm:p-2.5`}>
+                          <div className="flex items-center gap-2">
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${message.sender === 'Baktrack' ? 'bg-white/30 text-white' : 'bg-white text-gray-800'}`}>
+                              {message.sender === 'Baktrack' ? 'B' : 'U'}
+                            </div>
+                            <span className="text-white text-xs sm:text-sm break-words">{message.text}</span>
+                          </div>
                         </div>
-                        <span className="text-white text-xs sm:text-sm break-words">{message.text}</span>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
-              </div>
                 </div>
               </div>
             </div>
@@ -327,104 +329,39 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50 overflow-x-hidden">
       {/* Navigation */}
-      {/* <nav  className="fixed top-4 left-1/2 -translate-x-1/2 flex items-center justify-between px-8 py-4 bg-white rounded-2xl shadow-md z-50 w-[90%] max-w-6xl">
-        <div className="flex items-center">
-          <Image src="/baktrack_logo_large.svg" alt="Baktrack" width={48} height={48} className="h-12 w-auto transition-transform duration-300 hover:scale-110" />
-        </div>
-        <div className="hidden md:flex space-x-8">
-          <a href="#features" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
-            Features
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300  group-hover:w-full"></span>
-          </a>
-          <a href="#benefits" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
-            Benefits
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300  group-hover:w-full"></span>
-          </a>
-          <a href="#pricing" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
-            Pricing
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#contact" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
-            Contact
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-        </div>
-        <button className="bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg px-6 py-2 rounded-lg text-white font-semibold">Purchase</button>
-      </nav> */}
-
-      <nav
-        className={`fixed left-1/2 -translate-x-1/2 top-4 
-        flex items-center justify-between 
-        w-[90%] z-50 transition-all duration-300
-        ${scrolled
-            ? "max-w-4xl py-4 rounded-lg shadow-lg"
-            : "max-w-6xl py-4 rounded-2xl shadow-md"} 
-            bg-white px-8`}
-      >
-        {/* Logo */}
-        <div className="flex items-center">
-          <Image
-            src="/baktrack_logo_large.svg"
-            alt="Baktrack"
-            width={48}
-            height={48}
-            className={`transition-all duration-300 ${scrolled ? "h-12" : "h-12"
-              } w-auto`}
-          />
-        </div>
-
-        {/* Links */}
-        <div className="hidden md:flex space-x-8">
-          {["Features", "Benefits", "Pricing", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group"
-            >
-              {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
-        </div>
-
-        {/* CTA Button */}
-        <button className="bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg px-6 py-2 rounded-lg text-white font-semibold">
-          Purchase
-        </button>
-      </nav>
-
+      <Header scrolled={scrolled} />
 
       {/* Hero Section - Interactive Neura Style */}
-     <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 via-purple-50 to-blue-100 px-4 md:px-6 relative overflow-hidden mt-[130px]">
-  <div className="max-w-6xl mx-auto text-center z-10">
-    {/* Main Title */}
-    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-      AI Powered CCTV <br />
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-        Copilot
-      </span>
-    </h1>
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 via-purple-50 to-blue-100 px-4 md:px-6 relative overflow-hidden mt-[130px]">
+        <div className="max-w-6xl mx-auto text-center z-10">
+          {/* Main Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            AI Powered CCTV <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              Copilot
+            </span>
+          </h1>
 
-    {/* Subtitle */}
-    <p className="text-base sm:text-lg md:text-2xl text-gray-600 mb-10 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
-      Your Personalized Digital Security Guard
-    </p>
+          {/* Subtitle */}
+          <p className="text-base sm:text-lg md:text-2xl text-gray-600 mb-10 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
+            Your Personalized Digital Security Guard
+          </p>
 
-    {/* CTA Button */}
-    <button className="bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-800 transition-colors duration-300 mb-12 inline-flex items-center gap-2">
-      Get started
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </button>
+          {/* CTA Button */}
+          <button className="bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-800 transition-colors duration-300 mb-12 inline-flex items-center gap-2">
+            Get started
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
 
-    {/* Interactive Card Carousel */}
-    <InteractiveCardCarousel />
+          {/* Interactive Card Carousel */}
+          <InteractiveCardCarousel />
 
-    {/* Industry Focus News Ticker */}
-    <IndustryTicker />
-  </div>
-</section>
+          {/* Industry Focus News Ticker */}
+          <IndustryTicker />
+        </div>
+      </section>
 
 
       {/* Problem Agitation Section */}
@@ -1129,9 +1066,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <ContactUs />
+      {/* <ContactUs /> */}
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 px-6 py-12" id="contact">
+      <Footer/>
+      {/* <footer className="bg-gray-900 text-gray-300 px-6 py-12" id="contact">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
@@ -1190,7 +1128,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-sm">
           <p>&copy; 2025. All rights reserved. Baktrack</p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

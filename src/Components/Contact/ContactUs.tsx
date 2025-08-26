@@ -13,7 +13,7 @@ export default function ContactUs() {
         {/* Call / Email buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
           {/* Call */}
-          <button className="flex items-center justify-center gap-3 flex-1 font-semibold bg-purple-100 hover:bg-purple-200 px-6 py-3 rounded-xl transition">
+          {/* <button className="flex items-center justify-center gap-3 flex-1 font-semibold bg-purple-100 hover:bg-purple-200 px-6 py-3 rounded-xl transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -29,7 +29,7 @@ export default function ContactUs() {
               />
             </svg>
             Call
-          </button>
+          </button> */}
 
           {/* Email */}
           <button className="flex items-center justify-center gap-3 flex-1 font-semibold bg-red-100 hover:bg-red-200 px-6 py-3 rounded-xl transition">
