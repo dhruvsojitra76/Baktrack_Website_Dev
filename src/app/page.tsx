@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import './globals.css';
+import ContactUs from '@/Components/Contact/ContactUs';
 
 // Animation hook for scroll-triggered animations
 const useScrollAnimation = () => {
@@ -44,7 +45,7 @@ const ParallaxSection = ({ children, offset = 0.5, className = "" }: {
   }, []);
 
   return (
-    <div 
+    <div
       className={className}
       style={{
         transform: `translateY(${scrollY * offset}px)`,
@@ -58,7 +59,7 @@ const ParallaxSection = ({ children, offset = 0.5, className = "" }: {
 // News Ticker Component for Industry Focus
 const IndustryTicker = () => {
   const [isPaused, setIsPaused] = useState(false);
-  
+
   const industries = [
     'Residential', 'Retail', 'Healthcare', 'Manufacturing', 'Hospitality', 'Warehouse',
     'Logistics', 'Law Enforcement', 'Education', 'Banking', 'Transportation', 'Government',
@@ -67,8 +68,8 @@ const IndustryTicker = () => {
 
   return (
     <div className="mt-16">
-      <p className="text-sm text-gray-500 mb-6 uppercase tracking-wider text-center">Industry Focus</p>
-      <div 
+      <p className="text-lg font-semibold text-gray-700 mb-6 uppercase tracking-wider text-center">Industry Focus</p>
+      <div
         className="relative overflow-hidden w-full"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -169,7 +170,7 @@ const InteractiveCardCarousel = () => {
   // Auto-cycle through cards
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentCard((prev) => (prev + 1) % conversations.length);
     }, 4000);
@@ -192,7 +193,7 @@ const InteractiveCardCarousel = () => {
   return (
     <div className="relative w-full max-w-5xl mx-auto h-96 flex items-center justify-center overflow-hidden">
       {/* Left Navigation Area */}
-      <button
+      {/* <button
         onClick={prevCard}
         className="absolute left-0 top-0 w-20 h-full z-20 flex items-center justify-start pl-4 opacity-0 hover:opacity-100 transition-opacity duration-300"
         aria-label="Previous card"
@@ -202,10 +203,10 @@ const InteractiveCardCarousel = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </div>
-      </button>
+      </button> */}
 
       {/* Right Navigation Area */}
-      <button
+      {/* <button
         onClick={nextCard}
         className="absolute right-0 top-0 w-20 h-full z-20 flex items-center justify-end pr-4 opacity-0 hover:opacity-100 transition-opacity duration-300"
         aria-label="Next card"
@@ -215,7 +216,7 @@ const InteractiveCardCarousel = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </div>
-      </button>
+      </button> */}
 
       {/* Card Stack */}
       <div className="relative w-full h-96 flex items-center justify-center">
@@ -223,11 +224,11 @@ const InteractiveCardCarousel = () => {
           const isActive = index === currentCard;
           const isNext = index === (currentCard + 1) % conversations.length;
           const isPrev = index === (currentCard - 1 + conversations.length) % conversations.length;
-          
+
           let transform = 'translateX(200%) scale(0.7)';
           let zIndex = 1;
           let opacity = 0;
-          
+
           if (isActive) {
             transform = 'translateX(0%) scale(1)';
             zIndex = 10;
@@ -252,8 +253,8 @@ const InteractiveCardCarousel = () => {
                 opacity
               }}
             >
-              <div 
-                className={`bg-gradient-to-br ${conversation.gradient} rounded-3xl p-6 shadow-2xl w-[500px] h-[320px]`}
+              <div
+                className={`bg-gradient-to-br ${conversation.gradient} rounded-3xl p-6 shadow-2xl md:w-[500px] w-[300px]  h-[320px]`}
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
               >
@@ -265,27 +266,22 @@ const InteractiveCardCarousel = () => {
                     </div>
                     <span className="text-white font-semibold text-lg">{conversation.title}</span>
                   </div>
-                  
+
                   {/* Conversation */}
-                  <div className="space-y-2.5 flex-1">
-                    {conversation.messages.map((message, msgIndex) => (
-                      <div key={msgIndex} className={`flex ${message.sender === 'User' ? 'justify-end' : 'justify-start'}`}>
-                        <div className={`w-full ${message.sender === 'User' ? 'bg-white/30' : 'bg-white/20'} rounded-lg p-2.5`}>
-                          <div className="flex items-center gap-2">
-                            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
-                              message.sender === 'Baktrack' ? 'bg-white/30 text-white' : 'bg-white text-gray-800'
-                            }`}>
-                              {message.sender === 'Baktrack' ? 'B' : 'U'}
-                            </div>
-                            <div className="flex items-center gap-2 flex-1">
-                              <span className="text-white/90 text-xs font-medium">{message.sender}:</span>
-                              <span className="text-white text-sm whitespace-nowrap overflow-hidden text-ellipsis">{message.text}</span>
-                            </div>
-                          </div>
+                  <div className="space-y-2.5 flex-1 overflow-hidden">
+                {conversation.messages.map((message, msgIndex) => (
+                  <div key={msgIndex} className={`w-full `}>
+                    <div className={`md:max-w-full  ${message.sender === 'User' ? 'bg-white/30' : 'bg-white/20'} rounded-lg p-2 sm:p-2.5`}>
+                      <div className="flex items-center gap-2">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${message.sender === 'Baktrack' ? 'bg-white/30 text-white' : 'bg-white text-gray-800'}`}>
+                          {message.sender === 'Baktrack' ? 'B' : 'U'}
                         </div>
+                        <span className="text-white text-xs sm:text-sm break-words">{message.text}</span>
                       </div>
-                    ))}
+                    </div>
                   </div>
+                ))}
+              </div>
                 </div>
               </div>
             </div>
@@ -294,7 +290,7 @@ const InteractiveCardCarousel = () => {
       </div>
 
       {/* Card Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+      {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
         {conversations.map((_, index) => (
           <button
             key={index}
@@ -308,91 +304,144 @@ const InteractiveCardCarousel = () => {
             }`}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default function Home() {
   const animatedElements = useScrollAnimation();
+  const [scrolled, setScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50 overflow-x-hidden">
       {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-4 relative z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+      {/* <nav  className="fixed top-4 left-1/2 -translate-x-1/2 flex items-center justify-between px-8 py-4 bg-white rounded-2xl shadow-md z-50 w-[90%] max-w-6xl">
         <div className="flex items-center">
           <Image src="/baktrack_logo_large.svg" alt="Baktrack" width={48} height={48} className="h-12 w-auto transition-transform duration-300 hover:scale-110" />
         </div>
         <div className="hidden md:flex space-x-8">
-          <a href="#features" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 relative group">
+          <a href="#features" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
             Features
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300  group-hover:w-full"></span>
           </a>
-          <a href="#benefits" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 relative group">
+          <a href="#benefits" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
             Benefits
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300  group-hover:w-full"></span>
           </a>
-          <a href="#pricing" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 relative group">
+          <a href="#pricing" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
             Pricing
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#contact" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 relative group">
+          <a href="#contact" className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group">
             Contact
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
           </a>
         </div>
         <button className="bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg px-6 py-2 rounded-lg text-white font-semibold">Purchase</button>
+      </nav> */}
+
+      <nav
+        className={`fixed left-1/2 -translate-x-1/2 top-4 
+        flex items-center justify-between 
+        w-[90%] z-50 transition-all duration-300
+        ${scrolled
+            ? "max-w-4xl py-4 rounded-lg shadow-lg"
+            : "max-w-6xl py-4 rounded-2xl shadow-md"} 
+            bg-white px-8`}
+      >
+        {/* Logo */}
+        <div className="flex items-center">
+          <Image
+            src="/baktrack_logo_large.svg"
+            alt="Baktrack"
+            width={48}
+            height={48}
+            className={`transition-all duration-300 ${scrolled ? "h-12" : "h-12"
+              } w-auto`}
+          />
+        </div>
+
+        {/* Links */}
+        <div className="hidden md:flex space-x-8">
+          {["Features", "Benefits", "Pricing", "Contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group"
+            >
+              {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <button className="bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg px-6 py-2 rounded-lg text-white font-semibold">
+          Purchase
+        </button>
       </nav>
 
+
       {/* Hero Section - Interactive Neura Style */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 via-purple-50 to-blue-100 px-6 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto text-center z-10">
-          {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            AI Powered CCTV<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Copilot
-            </span>
-          </h1>
-          
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Your Personalized Digital Security Guard
-          </p>
-          
-          {/* CTA Button */}
-          <button className="bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors duration-300 mb-16 inline-flex items-center gap-2">
-            Get started
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
-          
-          {/* Interactive Card Carousel */}
-          <InteractiveCardCarousel />
-          
-          {/* Industry Focus News Ticker */}
-          <IndustryTicker />
-        </div>
-      </section>
+     <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 via-purple-50 to-blue-100 px-4 md:px-6 relative overflow-hidden mt-[130px]">
+  <div className="max-w-6xl mx-auto text-center z-10">
+    {/* Main Title */}
+    <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+      AI Powered CCTV <br />
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+        Copilot
+      </span>
+    </h1>
+
+    {/* Subtitle */}
+    <p className="text-base sm:text-lg md:text-2xl text-gray-600 mb-10 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
+      Your Personalized Digital Security Guard
+    </p>
+
+    {/* CTA Button */}
+    <button className="bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-800 transition-colors duration-300 mb-12 inline-flex items-center gap-2">
+      Get started
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </button>
+
+    {/* Interactive Card Carousel */}
+    <InteractiveCardCarousel />
+
+    {/* Industry Focus News Ticker */}
+    <IndustryTicker />
+  </div>
+</section>
+
 
       {/* Problem Agitation Section */}
       <section className="px-6 py-20 bg-gradient-to-b from-blue-100 via-blue-50 to-green-50 relative">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 
-            className={`text-4xl font-bold text-gray-800 mb-6 transition-all duration-1000 ${
-              animatedElements.has('problem-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <h2
+            className={`text-4xl font-bold text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('problem-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="problem-title"
             data-animate
           >
             Your Current Camera System Is Failing You
           </h2>
-          
-          <p 
-            className={`text-lg text-center text-gray-600 mb-16 max-w-4xl mx-auto transition-all duration-1000 delay-200 ${
-              animatedElements.has('problem-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+
+          <p
+            className={`text-lg text-center text-gray-600 mb-16 max-w-4xl mx-auto transition-all duration-1000 delay-200 ${animatedElements.has('problem-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="problem-subtitle"
             data-animate
           >
@@ -400,10 +449,9 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div 
-              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-300 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('problem-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-300 hover:shadow-xl hover:scale-105 ${animatedElements.has('problem-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="problem-1"
               data-animate
             >
@@ -411,11 +459,10 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-3 text-red-600">Too Late</h3>
               <p className="text-gray-600">You find out about incidents after they happen. Cry in 1080p later while counting your losses.</p>
             </div>
-            
-            <div 
-              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('problem-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${animatedElements.has('problem-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="problem-2"
               data-animate
             >
@@ -423,11 +470,10 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-3 text-orange-600">Time Wasted</h3>
               <p className="text-gray-600">Hours spent reviewing footage to find that one important moment. Your time is worth more than this.</p>
             </div>
-            
-            <div 
-              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-700 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('problem-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-700 hover:shadow-xl hover:scale-105 ${animatedElements.has('problem-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="problem-3"
               data-animate
             >
@@ -442,20 +488,18 @@ export default function Home() {
       {/* Solution Section */}
       <section className="px-6 py-20 bg-gradient-to-b from-green-50 via-white to-gray-50">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 
-            className={`text-4xl font-bold text-gray-800 mb-6 transition-all duration-1000 ${
-              animatedElements.has('solution-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <h2
+            className={`text-4xl font-bold text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('solution-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="solution-title"
             data-animate
           >
             Meet Your AI Powered Personalized Digital Security Guard
           </h2>
-          
-          <p 
-            className={`text-lg text-center text-gray-600 mb-16 max-w-4xl mx-auto transition-all duration-1000 delay-200 ${
-              animatedElements.has('solution-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+
+          <p
+            className={`text-lg text-center text-gray-600 mb-16 max-w-4xl mx-auto transition-all duration-1000 delay-200 ${animatedElements.has('solution-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="solution-subtitle"
             data-animate
           >
@@ -463,10 +507,9 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div 
-              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-300 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('feature-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-300 hover:shadow-xl hover:scale-105 ${animatedElements.has('feature-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="feature-1"
               data-animate
             >
@@ -474,11 +517,10 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-3 text-blue-600">Real-Time Detection</h3>
               <p className="text-gray-600">Instant alerts the moment something unusual happens</p>
             </div>
-            
-            <div 
-              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('feature-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${animatedElements.has('feature-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="feature-2"
               data-animate
             >
@@ -486,11 +528,10 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-3 text-green-600">Natural Language Setup</h3>
               <p className="text-gray-600">Just tell it what to watch for in plain English</p>
             </div>
-            
-            <div 
-              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-700 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('feature-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-700 hover:shadow-xl hover:scale-105 ${animatedElements.has('feature-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="feature-3"
               data-animate
             >
@@ -498,11 +539,10 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-3 text-purple-600">Predictive Intelligence</h3>
               <p className="text-gray-600">Spots patterns and prevents incidents before they escalate</p>
             </div>
-            
-            <div 
-              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-900 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('feature-4') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`bg-white rounded-xl p-6 shadow-lg transition-all duration-1000 delay-900 hover:shadow-xl hover:scale-105 ${animatedElements.has('feature-4') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="feature-4"
               data-animate
             >
@@ -515,7 +555,7 @@ export default function Home() {
       </section>
 
       {/* How Baktrack Works Section - Scroll-Triggered Chat */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-blue-50" id="how-it-works">
+      {/* <section className="py-20 bg-gradient-to-b from-gray-50 to-blue-50" id="how-it-works">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -528,7 +568,7 @@ export default function Home() {
           
           <div className="max-w-2xl mx-auto space-y-8">
             
-            {/* Message 1 - Baktrack */}
+
             <div 
               className={`transition-all duration-1000 ${
                 animatedElements.has('chat-msg-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -546,7 +586,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Message 2 - Baktrack */}
+ 
             <div 
               className={`transition-all duration-1000 delay-300 ${
                 animatedElements.has('chat-msg-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -564,7 +604,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Message 3 - User */}
+            
             <div 
               className={`transition-all duration-1000 delay-600 ${
                 animatedElements.has('chat-msg-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -582,7 +622,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Message 4 - Baktrack */}
+           
             <div 
               className={`transition-all duration-1000 delay-900 ${
                 animatedElements.has('chat-msg-4') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -600,7 +640,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Message 5 - User */}
+           
             <div 
               className={`transition-all duration-1000 delay-1200 ${
                 animatedElements.has('chat-msg-5') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -618,7 +658,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Message 6 - Baktrack */}
+          
             <div 
               className={`transition-all duration-1000 delay-1500 ${
                 animatedElements.has('chat-msg-6') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -636,7 +676,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Message 7 - Baktrack Alert */}
+           
             <div 
               className={`transition-all duration-1000 delay-1800 ${
                 animatedElements.has('chat-msg-7') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -662,25 +702,23 @@ export default function Home() {
 
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Enterprise Scale Section */}
       <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 
-              className={`text-4xl md:text-5xl font-bold text-gray-900 mb-6 transition-all duration-1000 ${
-                animatedElements.has('enterprise-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <h2
+              className={`text-4xl md:text-5xl font-bold text-gray-900 mb-6 transition-all duration-1000 ${animatedElements.has('enterprise-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="enterprise-title"
               data-animate
             >
               Every Camera Gets Its Own Brain
             </h2>
-            <p 
-              className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${
-                animatedElements.has('enterprise-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <p
+              className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${animatedElements.has('enterprise-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="enterprise-subtitle"
               data-animate
             >
@@ -689,10 +727,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div 
-              className={`text-center transition-all duration-1000 delay-300 ${
-                animatedElements.has('enterprise-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`text-center transition-all duration-1000 delay-300 ${animatedElements.has('enterprise-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="enterprise-1"
               data-animate
             >
@@ -700,11 +737,10 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-2">Unlimited Scale</h3>
               <p className="text-gray-600">From single camera to enterprise deployments</p>
             </div>
-            
-            <div 
-              className={`text-center transition-all duration-1000 delay-500 ${
-                animatedElements.has('enterprise-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`text-center transition-all duration-1000 delay-500 ${animatedElements.has('enterprise-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="enterprise-2"
               data-animate
             >
@@ -712,11 +748,10 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-2">Response Time</h3>
               <p className="text-gray-600">Lightning-fast threat detection and alerts</p>
             </div>
-            
-            <div 
-              className={`text-center transition-all duration-1000 delay-700 ${
-                animatedElements.has('enterprise-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`text-center transition-all duration-1000 delay-700 ${animatedElements.has('enterprise-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="enterprise-3"
               data-animate
             >
@@ -724,11 +759,10 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-2">Always Watching</h3>
               <p className="text-gray-600">Continuous monitoring without fatigue</p>
             </div>
-            
-            <div 
-              className={`text-center transition-all duration-1000 delay-900 ${
-                animatedElements.has('enterprise-4') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+
+            <div
+              className={`text-center transition-all duration-1000 delay-900 ${animatedElements.has('enterprise-4') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="enterprise-4"
               data-animate
             >
@@ -743,10 +777,9 @@ export default function Home() {
       {/* Target Audiences Section */}
       <section className="px-6 py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto">
-          <h2 
-            className={`text-4xl font-bold text-center text-gray-800 mb-12 transition-all duration-1000 ${
-              animatedElements.has('audiences-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <h2
+            className={`text-4xl font-bold text-center text-gray-800 mb-12 transition-all duration-1000 ${animatedElements.has('audiences-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="audiences-title"
             data-animate
           >
@@ -755,16 +788,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Individual User Card */}
-            <div 
-              className={`group relative transition-all duration-1000 delay-300 ${
-                animatedElements.has('audience-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`group relative transition-all duration-1000 delay-300 ${animatedElements.has('audience-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="audience-1"
               data-animate
             >
               {/* Subtle Border */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-200 to-blue-300 rounded-2xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
-              
+
               {/* Card */}
               <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1 group-hover:shadow-xl">
                 {/* Icon */}
@@ -775,12 +807,12 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold mb-4 text-blue-600">
                   Individual User
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">Peace of mind for your family with intelligent home monitoring.</p>
-                
+
                 {/* Use Cases + Feature */}
                 <ul className="space-y-3">
                   <li className="flex items-center text-gray-700">
@@ -804,16 +836,15 @@ export default function Home() {
             </div>
 
             {/* Business Card */}
-            <div 
-              className={`group relative transition-all duration-1000 delay-500 ${
-                animatedElements.has('audience-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`group relative transition-all duration-1000 delay-500 ${animatedElements.has('audience-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="audience-2"
               data-animate
             >
               {/* Subtle Border */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-green-200 to-green-300 rounded-2xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
-              
+
               {/* Card */}
               <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-xl">
                 {/* Icon */}
@@ -824,12 +855,12 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold mb-4 text-green-600">
                   Businesses
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">Protect your assets and ensure workplace safety.</p>
-                
+
                 {/* Use Cases + Feature */}
                 <ul className="space-y-3">
                   <li className="flex items-center text-gray-700">
@@ -853,16 +884,15 @@ export default function Home() {
             </div>
 
             {/* Enterprise Card */}
-            <div 
-              className={`group relative transition-all duration-1000 delay-700 ${
-                animatedElements.has('audience-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`group relative transition-all duration-1000 delay-700 ${animatedElements.has('audience-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="audience-3"
               data-animate
             >
               {/* Subtle Border */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-200 to-purple-300 rounded-2xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
-              
+
               {/* Card */}
               <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1 group-hover:shadow-xl">
                 {/* Icon */}
@@ -873,12 +903,12 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold mb-4 text-purple-600">
                   Enterprise
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">Mission-critical security for large-scale operations.</p>
-                
+
                 {/* Use Cases + Feature */}
                 <ul className="space-y-3">
                   <li className="flex items-center text-gray-700">
@@ -907,10 +937,9 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="px-6 py-20 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 
-            className={`text-4xl font-bold text-center text-gray-800 mb-12 transition-all duration-1000 ${
-              animatedElements.has('testimonials-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <h2
+            className={`text-4xl font-bold text-center text-gray-800 mb-12 transition-all duration-1000 ${animatedElements.has('testimonials-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="testimonials-title"
             data-animate
           >
@@ -918,10 +947,9 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div 
-              className={`bg-gray-50 rounded-xl p-6 transition-all duration-1000 delay-300 hover:shadow-lg hover:scale-105 ${
-                animatedElements.has('testimonial-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-gray-50 rounded-xl p-6 transition-all duration-1000 delay-300 hover:shadow-lg hover:scale-105 ${animatedElements.has('testimonial-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="testimonial-1"
               data-animate
             >
@@ -934,10 +962,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div 
-              className={`bg-gray-50 rounded-xl p-6 transition-all duration-1000 delay-500 hover:shadow-lg hover:scale-105 ${
-                animatedElements.has('testimonial-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-gray-50 rounded-xl p-6 transition-all duration-1000 delay-500 hover:shadow-lg hover:scale-105 ${animatedElements.has('testimonial-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="testimonial-2"
               data-animate
             >
@@ -950,10 +977,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div 
-              className={`bg-gray-50 rounded-xl p-6 transition-all duration-1000 delay-700 hover:shadow-lg hover:scale-105 ${
-                animatedElements.has('testimonial-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-gray-50 rounded-xl p-6 transition-all duration-1000 delay-700 hover:shadow-lg hover:scale-105 ${animatedElements.has('testimonial-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="testimonial-3"
               data-animate
             >
@@ -973,19 +999,17 @@ export default function Home() {
       {/* Pricing Section */}
       <section className="px-6 py-20 bg-gray-50" id="pricing">
         <div className="max-w-6xl mx-auto">
-          <h2 
-            className={`text-4xl font-bold text-center text-gray-800 mb-6 transition-all duration-1000 ${
-              animatedElements.has('pricing-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <h2
+            className={`text-4xl font-bold text-center text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('pricing-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="pricing-title"
             data-animate
           >
             Choose the Plan That Fits Your Needs
           </h2>
-          <p 
-            className={`text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${
-              animatedElements.has('pricing-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+          <p
+            className={`text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${animatedElements.has('pricing-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
             id="pricing-subtitle"
             data-animate
           >
@@ -993,10 +1017,9 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div 
-              className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-300 hover:shadow-lg hover:scale-105 ${
-                animatedElements.has('pricing-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-300 hover:shadow-lg hover:scale-105 ${animatedElements.has('pricing-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="pricing-1"
               data-animate
             >
@@ -1030,10 +1053,9 @@ export default function Home() {
               <button className="w-full bg-gray-800 text-white hover:bg-gray-900 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">Start Free Trial</button>
             </div>
 
-            <div 
-              className={`bg-white rounded-xl p-8 shadow-lg border-2 border-blue-500 relative transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${
-                animatedElements.has('pricing-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-white rounded-xl p-8 shadow-lg border-2 border-blue-500 relative transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${animatedElements.has('pricing-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="pricing-2"
               data-animate
             >
@@ -1070,10 +1092,9 @@ export default function Home() {
               <button className="w-full bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">Start Free Trial</button>
             </div>
 
-            <div 
-              className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-700 hover:shadow-lg hover:scale-105 ${
-                animatedElements.has('pricing-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            <div
+              className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-700 hover:shadow-lg hover:scale-105 ${animatedElements.has('pricing-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               id="pricing-3"
               data-animate
             >
@@ -1108,7 +1129,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <ContactUs />
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 px-6 py-12" id="contact">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -1121,22 +1142,22 @@ export default function Home() {
             <div className="flex space-x-4">
               <a href="#" className="hover:text-white transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                 </svg>
               </a>
               <a href="#" className="hover:text-white transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
                 </svg>
               </a>
               <a href="#" className="hover:text-white transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
@@ -1146,7 +1167,7 @@ export default function Home() {
               <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
@@ -1156,7 +1177,7 @@ export default function Home() {
               <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-white font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
@@ -1165,7 +1186,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        
+
         <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-sm">
           <p>&copy; 2025. All rights reserved. Baktrack</p>
         </div>
