@@ -383,12 +383,13 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center">
           <h2
             className={`text-4xl font-bold text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('problem-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            id="problem-title">
+            id="problem-title"
+            data-animate>
             Your Current Camera System Is Failing You
           </h2>
           <p
             className={`text-lg text-center text-gray-600 mb-16 max-w-4xl mx-auto transition-all duration-1000 delay-200 ${animatedElements.has('problem-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            id="problem-subtitle">
+            id="problem-subtitle" data-animate>
             Traditional cameras don`t prevent Anything—they just film it in HD so you can cry in 1080p later.
           </p>
 
