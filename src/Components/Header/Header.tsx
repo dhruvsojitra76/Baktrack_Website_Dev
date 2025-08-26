@@ -9,13 +9,11 @@ type HeaderProps = {
 const Header = ({ scrolled }: HeaderProps) => {
     return (
         <nav
-            className={`fixed left-1/2 -translate-x-1/2 top-4 
-                flex items-center justify-between 
-                w-[90%] z-50 transition-all duration-300
+            className={`fixed left-1/2 -translate-x-1/2 top-4 flex items-center justify-between w-[90%] z-50 transition-all duration-300
                 ${scrolled
-                    ? "max-w-4xl py-4 rounded-lg shadow-lg"
-                    : "max-w-6xl py-4 rounded-2xl shadow-md"} 
-                    bg-white px-8`}
+                    ? "max-w-2xl py-2 rounded-lg shadow-lg"
+                    : "max-w-6xl py-2 rounded-2xl shadow-md"} 
+                    bg-white px-4`}
         >
             {/* Logo */}
             <div className="flex items-center">
@@ -37,7 +35,7 @@ const Header = ({ scrolled }: HeaderProps) => {
                     <a
                         key={item}
                         href={item === "Contact" ? "/ContactUs" : `#${item.toLowerCase()}`}
-                        className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-semibold relative group"
+                        className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-medium relative group"
                     >
                         {item}
                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>

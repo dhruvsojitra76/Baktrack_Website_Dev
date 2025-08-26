@@ -934,7 +934,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="px-6 py-20 bg-gray-50" id="pricing">
+      {/* <section className="px-6 py-20 bg-gray-50" id="pricing">
         <div className="max-w-6xl mx-auto">
           <h2
             className={`text-4xl font-bold text-center text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('pricing-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -1065,7 +1065,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <ContactUs /> */}
       {/* Footer */}
       <Footer/>
