@@ -326,6 +326,20 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const issues = [
+    {
+      title: "Too Late",
+      description: "Perfect at showing you what you already lost.",
+    },
+    {
+      title: "Time Wasted",
+      description: "Rewind. Pause. Cry. Repeat.",
+    },
+    {
+      title: "Damage Done",
+      description: "Your valuables: gone. But hey, the footage looks great!",
+    },
+  ];
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50 overflow-x-hidden">
       {/* Navigation */}
@@ -365,7 +379,7 @@ export default function Home() {
 
 
       {/* Problem Agitation Section */}
-      <section className="px-6 py-20 bg-gradient-to-b from-blue-100 via-blue-50 to-green-50 relative">
+      <section className="px-6 py-20 bg-gradient-to-b from-blue-100 via-blue-50 to-green-50 relative" id="features">
         <div className="max-w-6xl mx-auto text-center">
           <h2
             className={`text-4xl font-bold text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('problem-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -382,48 +396,31 @@ export default function Home() {
             id="problem-subtitle"
             data-animate
           >
-            Traditional CCTV systems are reactive, not proactive. By the time you see the footage, the damage is already done.
+            Traditional cameras don't prevent Anything—they just film it in HD so you can cry in 1080p later.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-300 hover:shadow-xl hover:scale-105 ${animatedElements.has('problem-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="problem-1"
-              data-animate
-            >
-              <div className="text-6xl mb-4">😭</div>
-              <h3 className="text-xl font-bold mb-3 text-red-600">Too Late</h3>
-              <p className="text-gray-600">You find out about incidents after they happen. Cry in 1080p later while counting your losses.</p>
-            </div>
-
-            <div
-              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${animatedElements.has('problem-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="problem-2"
-              data-animate
-            >
-              <div className="text-6xl mb-4">⏰</div>
-              <h3 className="text-xl font-bold mb-3 text-orange-600">Time Wasted</h3>
-              <p className="text-gray-600">Hours spent reviewing footage to find that one important moment. Your time is worth more than this.</p>
-            </div>
-
-            <div
-              className={`bg-white rounded-xl p-8 shadow-lg transition-all duration-1000 delay-700 hover:shadow-xl hover:scale-105 ${animatedElements.has('problem-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="problem-3"
-              data-animate
-            >
-              <div className="text-6xl mb-4">💸</div>
-              <h3 className="text-xl font-bold mb-3 text-red-600">Damage Done</h3>
-              <p className="text-gray-600">Prevention is impossible when your system only records. Stop being a victim of reactive security.</p>
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {issues.map((issue, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl shadow-md p-6 border-l-4 border-red-500 text-center 
+                   hover:shadow-xl transform transition-transform duration-300 hover:scale-105"
+                >
+                  <h3 className="text-lg font-bold text-red-600 mb-2">
+                    {issue.title}
+                  </h3>
+                  <p className="text-gray-600">{issue.description}</p>
+                </div>
+              ))}
             </div>
           </div>
+
         </div>
       </section>
 
       {/* Solution Section */}
-      <section className="px-6 py-20 bg-gradient-to-b from-green-50 via-white to-gray-50">
+      {/* <section className="px-6 py-20 bg-gradient-to-b from-green-50 via-white to-gray-50">
         <div className="max-w-6xl mx-auto text-center">
           <h2
             className={`text-4xl font-bold text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('solution-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -486,6 +483,61 @@ export default function Home() {
               <div className="text-4xl mb-4">🧠</div>
               <h3 className="text-xl font-semibold mb-3 text-purple-600">Intelligent Self Learning</h3>
               <p className="text-gray-600">Learns, adapts, improves from user&apos;s feedback realtime</p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+      <section className="bg-gradient-to-b from-green-50 via-white to-blue-50">
+        {/* Heading */}
+        <div className='max-w-6xl mx-auto px-6 py-16 text-center'>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-12">
+            Meet Your AI Powered Personalized Digital Security Guard
+          </h2>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+            {/* Feature 1 */}
+            <div className="flex flex-col items-center">
+              <span className="text-4xl mb-4">🔌</span>
+              <h3 className="text-lg font-bold text-blue-600 mb-2">
+                Connects With Existing <br /> Camera System
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Plug into your current cameras. <br /> Instant AI upgrade.
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="flex flex-col items-center">
+              <span className="text-4xl mb-4">⚡</span>
+              <h3 className="text-lg font-bold text-red-600 mb-2">
+                Prevention Real Time
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Real-time alerts. Act before damage occurs.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="flex flex-col items-center">
+              <span className="text-4xl mb-4">💬</span>
+              <h3 className="text-lg font-bold text-green-600 mb-2">
+                Natural Language Communication
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Just tell it what to watch. <br /> It understands perfectly.
+              </p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="flex flex-col items-center">
+              <span className="text-4xl mb-4">🧠</span>
+              <h3 className="text-lg font-bold text-purple-600 mb-2">
+                Intelligent Self Learning
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Learns, adapts, improves from user's <br /> feedback realtime
+              </p>
             </div>
           </div>
         </div>
@@ -642,7 +694,7 @@ export default function Home() {
       </section> */}
 
       {/* Enterprise Scale Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50">
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50" id='benefits'>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2
@@ -934,7 +986,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      {/* <section className="px-6 py-20 bg-gray-50" id="pricing">
+      <section className="px-6 py-20 bg-gray-50" id="pricing">
         <div className="max-w-6xl mx-auto">
           <h2
             className={`text-4xl font-bold text-center text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('pricing-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -1065,10 +1117,25 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
+      <div className="bg-gray-100 py-20 text-center">
+        {/* Title */}
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+          Don't Wait for the Next Incident
+        </h2>
+
+        {/* Button */}
+        <a
+          href="#"
+          className="inline-block bg-gray-800 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-gray-900 transition duration-300"
+        >
+          Start Free Trial
+        </a>
+      </div>
+
       {/* <ContactUs /> */}
       {/* Footer */}
-      <Footer/>
+      <Footer />
       {/* <footer className="bg-gray-900 text-gray-300 px-6 py-12" id="contact">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
