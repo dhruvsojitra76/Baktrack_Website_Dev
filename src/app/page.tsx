@@ -688,7 +688,7 @@ export default function Home() {
       </section> */}
 
       {/* Enterprise Scale Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50" id='benefits'>
+      {/* <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50" id='benefits'>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2
@@ -755,8 +755,126 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+  <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Every Camera Gets Its Own Brain
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Enterprise security faces an impossible challenge: one guard monitoring 50+ camera feeds. 
+              Human attention can&apos;t handle this cognitive overload.
+            </p>
+          </div>
 
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+
+            <div className="space-y-8">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-red-600 mb-2">The Problem</h3>
+                  <p className="text-gray-600">Traditional Security Monitoring</p>
+                </div>
+                
+                
+                <div className="bg-gray-900 rounded-xl p-6 mb-6">
+                  <div className="grid grid-cols-6 gap-1 mb-4">
+                    {Array.from({ length: 24 }, (_, i) => (
+                      <div key={i} className="aspect-video bg-gray-700 rounded border border-gray-600 flex items-center justify-center">
+                        <span className="text-gray-400 text-xs">📹</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-center">
+                    <div className="inline-flex items-center space-x-2 bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">
+                      <span>👤</span>
+                      <span>1 Overwhelmed Guard</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3 text-red-600">
+                    <span className="text-xl">❌</span>
+                    <span>50+ tiny camera feeds to monitor</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-red-600">
+                    <span className="text-xl">❌</span>
+                    <span>Human attention span limitations</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-red-600">
+                    <span className="text-xl">❌</span>
+                    <span>Critical events easily missed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+  
+            <div className="space-y-8">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-green-600 mb-2">The Solution</h3>
+                  <p className="text-gray-600">Baktrack AI Intelligence</p>
+                </div>
+                
+                
+                <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 mb-6">
+                  <div className="grid grid-cols-6 gap-1 mb-4">
+                    {Array.from({ length: 24 }, (_, i) => (
+                      <div key={i} className="aspect-video bg-white rounded border-2 border-green-300 flex items-center justify-center relative">
+                        <span className="text-green-600 text-xs">📹</span>
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">🧠</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-center">
+                    <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+                      <span>👤</span>
+                      <span>1 Guard + 50 AI Assistants</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3 text-green-600">
+                    <span className="text-xl">✅</span>
+                    <span>Each camera has its own AI brain</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-green-600">
+                    <span className="text-xl">✅</span>
+                    <span>Understands human instructions</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-green-600">
+                    <span className="text-xl">✅</span>
+                    <span>Clear, actionable alerts only</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+              <div className="text-3xl font-bold text-blue-600 mb-2">1 → 50+</div>
+              <p className="text-gray-600">From One Guard to AI Assistants</p>
+            </div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+              <div className="text-3xl font-bold text-green-600 mb-2">0.3s</div>
+              <p className="text-gray-600">Average Response Time</p>
+            </div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+              <div className="text-3xl font-bold text-purple-600 mb-2">0</div>
+              <p className="text-gray-600">Cognitive Overload</p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Target Audiences Section */}
       <section className="px-6 py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto">
