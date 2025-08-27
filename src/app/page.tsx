@@ -6,6 +6,8 @@ import './globals.css';
 import ContactUs from '@/Components/Contact/ContactUs';
 import Header from '@/Components/Header/Header';
 import Footer from '@/Components/Footer/Footer';
+import ChatSection from '@/Components/ChatSection/ChatSection';
+
 
 // Animation hook for scroll-triggered animations
 const useScrollAnimation = () => {
@@ -756,6 +758,8 @@ export default function Home() {
           </div>
         </div>
       </section> */}
+      <ChatSection/>
+      {/* <OurMenuSection/> */}
   <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
