@@ -31,7 +31,7 @@ const Header = ({ scrolled }: HeaderProps) => {
 
             {/* Links */}
             <div className="hidden md:flex space-x-8">
-                {["Features", "Benefits", "Pricing", "Contact"].map((item) => (
+                {["Home", "Benefits", "How it Works?","Pricing" ].map((item) => (
                     <a
                         key={item}
                         href={item === "Contact" ? "/ContactUs" : `#${item.toLowerCase()}`}
@@ -44,10 +44,11 @@ const Header = ({ scrolled }: HeaderProps) => {
             </div>
 
 
-            {/* CTA Button */}
-            <button className="bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg px-6 py-2 rounded-lg text-white font-semibold">
-                Purchase
+            <Link href="/ContactUs">
+            <button    className="bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 hover:shadow-lg px-6 py-2 rounded-lg text-white font-semibold">
+                Contact Us
             </button>
+            </Link>
         </nav>
     )
 }

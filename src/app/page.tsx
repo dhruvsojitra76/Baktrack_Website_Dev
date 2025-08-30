@@ -7,6 +7,8 @@ import ContactUs from '@/Components/Contact/ContactUs';
 import Header from '@/Components/Header/Header';
 import Footer from '@/Components/Footer/Footer';
 import ChatSection from '@/Components/ChatSection/ChatSection';
+import Link from 'next/link';
+import ComparisonSection from '@/Components/ComparisonSection/ComparisonSection';
 
 
 // Animation hook for scroll-triggered animations
@@ -364,13 +366,14 @@ export default function Home() {
           </p>
 
           {/* CTA Button */}
-          <button className="bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-800 transition-colors duration-300 mb-12 inline-flex items-center gap-2">
-            Get started
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
-
+          <Link href="/ContactUs">
+            <button className="bg-gray-900 cursor-pointer text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-800 transition-colors duration-300 mb-12 inline-flex items-center gap-2">
+              Get Started
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          </Link>
           {/* Interactive Card Carousel */}
           <InteractiveCardCarousel />
 
@@ -483,7 +486,7 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      <section className="bg-gradient-to-b from-green-50 via-white to-blue-50">
+      <section className="bg-gradient-to-b from-green-50 via-white to-blue-50" id='benefits'>
         {/* Heading */}
         <div className='max-w-6xl mx-auto px-6 py-16 text-center'>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-12">
@@ -758,22 +761,23 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      <ChatSection/>
+      <ComparisonSection />
+      <ChatSection />
       {/* <OurMenuSection/> */}
-  <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50">
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Every Camera Gets Its Own Brain
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Enterprise security faces an impossible challenge: one guard monitoring 50+ camera feeds. 
+              Enterprise security faces an impossible challenge: one guard monitoring 50+ camera feeds.
               Human attention can&apos;t handle this cognitive overload.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
+
 
             <div className="space-y-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
@@ -781,8 +785,8 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-red-600 mb-2">The Problem</h3>
                   <p className="text-gray-600">Traditional Security Monitoring</p>
                 </div>
-                
-                
+
+
                 <div className="bg-gray-900 rounded-xl p-6 mb-6">
                   <div className="grid grid-cols-6 gap-1 mb-4">
                     {Array.from({ length: 24 }, (_, i) => (
@@ -816,15 +820,15 @@ export default function Home() {
               </div>
             </div>
 
-  
+
             <div className="space-y-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-green-600 mb-2">The Solution</h3>
                   <p className="text-gray-600">Baktrack AI Intelligence</p>
                 </div>
-                
-                
+
+
                 <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 mb-6">
                   <div className="grid grid-cols-6 gap-1 mb-4">
                     {Array.from({ length: 24 }, (_, i) => (
@@ -881,163 +885,175 @@ export default function Home() {
       </section>
       {/* Target Audiences Section */}
       <section className="px-6 py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto">
-          <h2
-            className={`text-4xl font-bold text-center text-gray-800 mb-12 transition-all duration-1000 ${animatedElements.has('audiences-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            id="audiences-title"
-            data-animate
-          >
-            Trusted by Forward-Thinking Users
-          </h2>
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-4xl font-bold text-center text-gray-800">
+      Trusted by Forward-Thinking Users
+    </h2>
+    <p className="text-md text-gray-600 text-center mt-4 mx-auto mb-12">
+      From individual users to enterprises, Baktrack adapts to your specific security needs.
+    </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Individual User Card */}
-            <div
-              className={`group relative transition-all duration-1000 delay-300 ${animatedElements.has('audience-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="audience-1"
-              data-animate
-            >
-              {/* Subtle Border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-200 to-blue-300 rounded-2xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Individual User Card */}
+      <div className="group relative">
+        {/* Subtle Border */}
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-200 to-blue-300 rounded-2xl opacity-50"></div>
 
-              {/* Card */}
-              <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1 group-hover:shadow-xl">
-                {/* Icon */}
-                <div className="mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
-                  <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold mb-4 text-blue-600">
-                  Individual User
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">Peace of mind for your family with intelligent home monitoring.</p>
-
-                {/* Use Cases + Feature */}
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    Elderly fall detection and medical emergencies
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    Package delivery and break-in prevention
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    Fire and safety monitoring
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    Easy natural language setup
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Business Card */}
-            <div
-              className={`group relative transition-all duration-1000 delay-500 ${animatedElements.has('audience-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="audience-2"
-              data-animate
-            >
-              {/* Subtle Border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-200 to-green-300 rounded-2xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
-
-              {/* Card */}
-              <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-xl">
-                {/* Icon */}
-                <div className="mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:-rotate-12">
-                  <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold mb-4 text-green-600">
-                  Businesses
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">Protect your assets and ensure workplace safety.</p>
-
-                {/* Use Cases + Feature */}
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                    Employee medical incidents and workplace injuries
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                    Theft prevention and asset protection
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                    Customer behavior and safety monitoring
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                    Professional setup and support included
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Enterprise Card */}
-            <div
-              className={`group relative transition-all duration-1000 delay-700 ${animatedElements.has('audience-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="audience-3"
-              data-animate
-            >
-              {/* Subtle Border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-200 to-purple-300 rounded-2xl opacity-50 group-hover:opacity-75 transition duration-500"></div>
-
-              {/* Card */}
-              <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transform transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1 group-hover:shadow-xl">
-                {/* Icon */}
-                <div className="mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
-                  <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z" />
-                    </svg>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold mb-4 text-purple-600">
-                  Enterprise
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">Mission-critical security for large-scale operations.</p>
-
-                {/* Use Cases + Feature */}
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    Healthcare facility patient monitoring and emergencies
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    Manufacturing safety and equipment monitoring
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    Large-scale security and compliance monitoring
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    Custom-trained models and dedicated support
-                  </li>
-                </ul>
-              </div>
+        {/* Card */}
+        <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
+          {/* Icon */}
+          <div className="mb-6">
+            <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
             </div>
           </div>
+
+          <h3 className="text-2xl font-bold mb-4 text-blue-600">
+            Individual User
+          </h3>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Peace of mind for your family with intelligent home monitoring.
+          </p>
+
+          {/* Use Cases + Feature */}
+          <ul className="space-y-3">
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+              Elderly fall detection and medical emergencies
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+              Package delivery and break-in prevention
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+              Fire and safety monitoring
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+              Easy natural language setup
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
+
+      {/* Business Card */}
+      <div className="group relative">
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-green-200 to-green-300 rounded-2xl opacity-50"></div>
+
+        <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
+          <div className="mb-6">
+            <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <h3 className="text-2xl font-bold mb-4 text-green-600">
+            Businesses
+          </h3>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Protect your assets and ensure workplace safety.
+          </p>
+
+          <ul className="space-y-3">
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+              Employee medical incidents and workplace injuries
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+              Theft prevention and asset protection
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+              Customer behavior and safety monitoring
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+              Professional setup and support included
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Enterprise Card */}
+      <div className="group relative">
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-200 to-purple-300 rounded-2xl opacity-50"></div>
+
+        <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <div className="mb-6">
+            <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <h3 className="text-2xl font-bold mb-4 text-purple-600">
+            Enterprise
+          </h3>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Mission-critical security for large-scale operations.
+          </p>
+
+          <ul className="space-y-3">
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+              Healthcare facility patient monitoring and emergencies
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+              Manufacturing safety and equipment monitoring
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+              Large-scale security and compliance monitoring
+            </li>
+            <li className="flex items-center text-gray-700">
+              <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+              Custom-trained models and dedicated support
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Testimonials Section */}
       <section className="px-6 py-20 bg-white">
@@ -1102,138 +1118,195 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="px-6 py-20 bg-gray-50" id="pricing">
-        <div className="max-w-6xl mx-auto">
-          <h2
-            className={`text-4xl font-bold text-center text-gray-800 mb-6 transition-all duration-1000 ${animatedElements.has('pricing-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            id="pricing-title"
-            data-animate
-          >
-            Choose the Plan That Fits Your Needs
-          </h2>
-          <p
-            className={`text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${animatedElements.has('pricing-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            id="pricing-subtitle"
-            data-animate
-          >
-            Whether you&apos;re just starting out or looking to expand your capabilities, our plans provide the perfect solution for your security needs.
-          </p>
+<section className="px-6 py-20 bg-gray-50" id="pricing">
+  <div className="max-w-6xl mx-auto">
+    <h2
+      className={`text-4xl font-bold text-center text-gray-800 mb-6 transition-all duration-1000 ${
+        animatedElements.has("pricing-title")
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-10"
+      }`}
+      id="pricing-title"
+      data-animate
+    >
+      Choose the Plan That Fits Your Needs
+    </h2>
+    <p
+      className={`text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${
+        animatedElements.has("pricing-subtitle")
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-10"
+      }`}
+      id="pricing-subtitle"
+      data-animate
+    >
+      Whether you&apos;re just starting out or looking to expand your capabilities,
+      our plans provide the perfect solution for your security needs.
+    </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-300 hover:shadow-lg hover:scale-105 ${animatedElements.has('pricing-1') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="pricing-1"
-              data-animate
-            >
-              <h3 className="text-2xl font-bold mb-2">Individual</h3>
-              <div className="mb-4">
-                <span className="text-4xl font-bold">$29</span>
-                <span className="text-gray-500">/month</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Natural language commands
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Up to 4 cameras
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Basic incident detection
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Mobile alerts
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Self-service setup
-                </li>
-              </ul>
-              <button className="w-full bg-gray-800 text-white hover:bg-gray-900 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">Start Free Trial</button>
-            </div>
-
-            <div
-              className={`bg-white rounded-xl p-8 shadow-lg border-2 border-blue-500 relative transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${animatedElements.has('pricing-2') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="pricing-2"
-              data-animate
-            >
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Business</h3>
-              <div className="mb-4">
-                <span className="text-4xl font-bold">$99</span>
-                <span className="text-gray-500">/month</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Everything in Individual
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Up to 20 cameras
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Advanced analytics
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Priority support
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Custom integrations
-                </li>
-              </ul>
-              <button className="w-full bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">Start Free Trial</button>
-            </div>
-
-            <div
-              className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-700 hover:shadow-lg hover:scale-105 ${animatedElements.has('pricing-3') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              id="pricing-3"
-              data-animate
-            >
-              <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
-              <div className="mb-4">
-                <span className="text-4xl font-bold">Custom</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Everything in Business
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Unlimited cameras
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Custom AI models
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Dedicated support
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <span className="text-green-500 mr-2">✓</span>
-                  On-premise deployment
-                </li>
-              </ul>
-              <button className="w-full bg-gray-800 text-white hover:bg-gray-900 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">Contact Sales</button>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Individual */}
+      <div
+        className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-300 hover:shadow-lg hover:scale-105 ${
+          animatedElements.has("pricing-1")
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
+        id="pricing-1"
+        data-animate
+      >
+        <h3 className="text-2xl font-bold mb-2">Individual</h3>
+        <div className="mb-4">
+          <span className="text-4xl font-bold">Custom</span>
+          <span className="text-gray-500">/pricing</span>
         </div>
-      </section>
+        <ul className="space-y-3 mb-8">
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Normal analysis
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Natural language commands
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Customized monitoring hours every day
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Customized number of cameras
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Fully customizable system
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Mobile alerts
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Integration with your cameras
+          </li>
+        </ul>
+        <button className="w-full bg-gray-800 text-white hover:bg-gray-900 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">
+          Contact Sales
+        </button>
+      </div>
+
+      {/* Business */}
+      <div
+        className={`bg-white rounded-xl p-8 shadow-lg border-2 border-blue-500 relative transition-all duration-1000 delay-500 hover:shadow-xl hover:scale-105 ${
+          animatedElements.has("pricing-2")
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
+        id="pricing-2"
+        data-animate
+      >
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+            Most Popular
+          </span>
+        </div>
+        <h3 className="text-2xl font-bold mb-2">Business</h3>
+        <div className="mb-4">
+          <span className="text-4xl font-bold">Custom</span>
+          <span className="text-gray-500">/pricing</span>
+        </div>
+        <ul className="space-y-3 mb-8">
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Detailed analysis
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Pre-tuned and tested integration
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Natural language commands
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Customized monitoring hours every day
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Customized number of cameras
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Mobile alerts
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Integration with your cameras
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Priority Support
+          </li>
+        </ul>
+        <button className="w-full bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">
+          Contact Sales
+        </button>
+      </div>
+
+      {/* Enterprise */}
+      <div
+        className={`bg-white rounded-xl p-8 shadow-sm border transition-all duration-1000 delay-700 hover:shadow-lg hover:scale-105 ${
+          animatedElements.has("pricing-3")
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
+        id="pricing-3"
+        data-animate
+      >
+        <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+        <div className="mb-4">
+          <span className="text-4xl font-bold">Custom</span>
+          <span className="text-gray-500">/pricing</span>
+        </div>
+        <ul className="space-y-3 mb-8">
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Everything in Business
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Unlimited cameras
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Custom tuned and tested system integration
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Dedicated alert system
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Business insights
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            Dedicated support
+          </li>
+          <li className="flex items-center text-gray-600">
+            <span className="text-green-500 mr-2">✓</span>
+            SLA guarantees
+          </li>
+        </ul>
+        <button className="w-full bg-gray-800 text-white hover:bg-gray-900 transform hover:scale-105 transition-all duration-300 px-6 py-3 rounded-lg font-semibold">
+          Contact Sales
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
       <div className="bg-gray-100 py-20 text-center">
         {/* Title */}
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
@@ -1245,7 +1318,7 @@ export default function Home() {
           href="#"
           className="inline-block bg-gray-800 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-gray-900 transition duration-300"
         >
-          Start Free Trial
+          Contact Sales
         </a>
       </div>
 
