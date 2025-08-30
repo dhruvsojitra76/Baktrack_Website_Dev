@@ -338,7 +338,7 @@ export default function ChatSlider() {
     const prevSlide = () => setActiveIndex((prev) => (prev - 1 + chats.length) % chats.length);
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 via-white to-blue-50 px-4 py-12">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 via-white to-blue-50 px-4 py-12" id="works">
             {/* Heading */}
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center">
                 How Baktrack Works in Natural Language

@@ -1,3 +1,4 @@
+// app/api/contact/route.ts
 import nodemailer from "nodemailer";
 
 export async function POST(req) {
@@ -5,21 +6,25 @@ export async function POST(req) {
     const body = await req.json();
     const { firstName, lastName, email, message } = body;
 
-    // Setup transporter
+    if (!firstName || !lastName || !email || !message) {
+      return new Response(
+        JSON.stringify({ success: false, message: "All fields are required" }),
+        { status: 400 }
+      );
+    }
+
+    // ✅ Use Gmail service
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,  // e.g. smtp.gmail.com
-      port: process.env.SMTP_PORT,  // 465 (SSL) or 587 (TLS)
-      secure: process.env.SMTP_PORT == 465, // true if using port 465
+      service: "zoho",
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.SMTP_USER, // your Gmail
+        pass: process.env.SMTP_PASS, // your Google App Password
       },
     });
 
-    // Send the email
     await transporter.sendMail({
       from: `"Website Contact" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER, // who should receive it
+      to: process.env.SMTP_USER,
       subject: "📮 New Contact Form Submission",
       text: `
         Name: ${firstName} ${lastName}
@@ -35,9 +40,15 @@ export async function POST(req) {
       `,
     });
 
-    return new Response(JSON.stringify({ success: true, message: "Email sent!" }), { status: 200 });
+    return new Response(
+      JSON.stringify({ success: true, message: "✅ Email sent successfully!" }),
+      { status: 200 }
+    );
   } catch (error) {
-    console.error("Error sending email:", error);
-    return new Response(JSON.stringify({ success: false, message: "Failed to send email" }), { status: 500 });
+    console.error("❌ Error sending email:", error);
+    return new Response(
+      JSON.stringify({ success: false, message: "Failed to send email", error: error.message }),
+      { status: 500 }
+    );
   }
 }

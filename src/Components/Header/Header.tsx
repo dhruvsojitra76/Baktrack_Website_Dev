@@ -31,13 +31,13 @@ const Header = ({ scrolled }: HeaderProps) => {
 
             {/* Links */}
             <div className="hidden md:flex space-x-8">
-                {["Home", "Benefits", "How it Works?","Pricing" ].map((item) => (
+                {[{title:"Home",key:'/'}, {title:"Benefits",key:'benefits'}, {title:"How it Works?",key:'works'},{title:"Pricing",key:'pricing'} ].map((item) => (
                     <a
-                        key={item}
-                        href={item === "Contact" ? "/ContactUs" : `#${item.toLowerCase()}`}
+                        key={item.key}
+                        href={item.key==='/' ? '/' : `#${item.key}`}
                         className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-medium relative group"
                     >
-                        {item}
+                        {item.title}
                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 ))}

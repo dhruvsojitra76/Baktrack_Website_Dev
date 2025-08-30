@@ -8,8 +8,8 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-4">
               
-              <Image src="/backtrack.svg" alt="Baktrack" width={64} height={64} className="h-14 w-auto mr-2" />
-              {/* <span className="text-white font-bold text-xl">Baktrack</span> */}
+              {/* <Image src="/backtrack.svg" alt="Baktrack" width={64} height={64} className="h-14 w-auto mr-2" /> */}
+              <span className="text-white font-bold text-xl">Baktrack</span>
             </div>
             <p className="text-sm mb-4">AI-powered security that prevents incidents before they happen.</p>
             <div className="flex space-x-4">
@@ -46,7 +46,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link href="#benefits" className="hover:text-white transition-colors">Benefits</Link></li>
-              <li><Link href="#how it works" className="hover:text-white transition-colors">How It Works ?</Link></li>
+              <li><Link href="#works" className="hover:text-white transition-colors">How It Works ?</Link></li>
               <li><Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
             </ul>
           </div>
@@ -72,7 +72,7 @@ export default function Footer() {
 
         <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-sm">
           <p>&copy; 2025. All rights reserved. Baktrack</p>
-          <p>Made with ❤️ and developed by <a href="https://thekarmicuniverse.com/" className="underline text-red-300">The Karmic Solution </a></p>
+          {/* <p>Made with ❤️ and developed by <a href="https://thekarmicuniverse.com/" className="underline text-red-300">The Karmic Solution </a></p> */}
         </div>
       </footer>
     </>

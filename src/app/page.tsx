@@ -1074,12 +1074,12 @@ export default function Home() {
               id="testimonial-1"
               data-animate
             >
-              <p className="text-gray-600 mb-4 italic">&quot;Baktrack has completely changed how I think about home security. Instead of just recording break-ins, it actually prevents them. The natural language setup was so easy - I just told it what to watch for.&quot;</p>
+              <p className="text-gray-600 mb-4 italic">&quot;"Baktrack has completely changed how I think about home security. Instead of just recording break-ins, it actually prevents them. The natural language setup was so easy - I just told it what to watch for."&quot;</p>
               <div className="flex items-center">
                 <div className="bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-semibold mr-3">S</div>
                 <div>
-                  <p className="font-semibold">Sarah Mitchell</p>
-                  <p className="text-sm text-gray-500">Homeowner</p>
+                  <p className="font-semibold">Vijay Patel</p>
+                  <p className="text-sm text-gray-500">Convenience Store Owner, Kitchener ON</p>
                 </div>
               </div>
             </div>
@@ -1089,12 +1089,12 @@ export default function Home() {
               id="testimonial-2"
               data-animate
             >
-              <p className="text-gray-600 mb-4 italic">&quot;We&apos;ve prevented three potential liability incidents in just two months. Baktrack spotted slip hazards and safety violations before they became problems. It&apos;s like having a safety manager that never sleeps.&quot;</p>
+              <p className="text-gray-600 mb-4 italic">&quot;What impressed me most is how I can shape this system exactly how I want. I told it to watch for unusual activity around my property and it actually understands what I'm asking for.&quot;</p>
               <div className="flex items-center">
                 <div className="bg-green-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-semibold mr-3">M</div>
                 <div>
-                  <p className="font-semibold">Mike Rodriguez</p>
-                  <p className="text-sm text-gray-500">Restaurant Owner</p>
+                  <p className="font-semibold">Jovian Nakamoto</p>
+                  <p className="text-sm text-gray-500">Home Owner, Mississauga ON</p>
                 </div>
               </div>
             </div>
@@ -1104,12 +1104,12 @@ export default function Home() {
               id="testimonial-3"
               data-animate
             >
-              <p className="text-gray-600 mb-4 italic">&quot;The predictive capabilities are incredible. Baktrack identified equipment overheating patterns that could have led to a major fire. It&apos;s not just monitoring - it&apos;s intelligent prevention.&quot;</p>
+              <p className="text-gray-600 mb-4 italic">&quot;After 3 package thefts last month, I was frustrated with neighborhood kids stealing my deliveries. Baktrack now watches my driveway 24/7 and alerts me instantly when packages arrive or if anyone suspicious approaches.&quot;</p>
               <div className="flex items-center">
                 <div className="bg-purple-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-semibold mr-3">J</div>
                 <div>
-                  <p className="font-semibold">Jennifer Chen</p>
-                  <p className="text-sm text-gray-500">Warehouse Manager</p>
+                  <p className="font-semibold">Umair Ansari</p>
+                  <p className="text-sm text-gray-500">Home Owner, Brampton ON</p>
                 </div>
               </div>
             </div>

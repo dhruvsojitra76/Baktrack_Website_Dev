@@ -136,7 +136,7 @@ export default function ContactUs() {
   }
 
   return (
-    <section className="bg-gray-50 py-16 px-6">
+    <section className="bg-gray-50 pb-16 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center gap-2">
           Contact us <span className="text-2xl">📮</span>
