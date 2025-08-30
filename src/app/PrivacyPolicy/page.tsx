@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
                         {/* Children's Privacy */}
                         <section>
                             <h2 className="text-xl font-semibold text-gray-800 mb-3">
-                                Children's Privacy
+                                Children`s Privacy
                             </h2>
                             <p className="text-gray-700">
                                 Baktrack does not knowingly collect data from children under the age of 13.

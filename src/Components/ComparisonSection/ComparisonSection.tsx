@@ -8,7 +8,7 @@ const ComparisonSection = () => {
         Traditional Object Detection vs. Baktrack: What Sets Us Apart
       </h1>
       <p className="mt-3 text-gray-600 text-center max-w-2xl">
-        Most CCTV systems use basic object detection. Here's why that's not enough.
+        Most CCTV systems use basic object detection. Here`s why that`s not enough.
       </p>
 
       {/* Cards Section */}
@@ -23,7 +23,7 @@ const ComparisonSection = () => {
           <h2 className="text-xl font-semibold text-center mt-4">
             Traditional Object Detection
           </h2>
-          <p className="text-center text-sm opacity-80">"Limited & Unreliable"</p>
+          <p className="text-center text-sm opacity-80">`Limited & Unreliable`</p>
 
           <h3 className="mt-6 font-semibold">❌ PROBLEMS:</h3>
           <ul className="mt-3 space-y-2 text-sm">
@@ -32,13 +32,13 @@ const ComparisonSection = () => {
             <li>• High false positives (e.g., bag-like objects detected as bags)</li>
             <li>• Misses new variations (different looking backpacks)</li>
             <li>• Simple motion alerts with no intelligence</li>
-            <li>• Pre-programmed logic - can’t adapt</li>
+            <li>• Pre-programmed logic - can`t adapt</li>
           </ul>
 
           <div className="mt-6 bg-blue-300/20 p-4 rounded-lg text-sm">
             💡 <b>Example:</b> <br />
-            "Trained on 10,000 backpack images → confused by new backpack design OR
-            detects pillow as backpack (false positive)"
+            `Trained on 10,000 backpack images → confused by new backpack design OR
+            detects pillow as backpack (false positive)`
           </div>
         </div>
 
@@ -52,7 +52,7 @@ const ComparisonSection = () => {
           <h2 className="text-xl font-semibold text-center mt-4">
             Baktrack Intelligence
           </h2>
-          <p className="text-center text-sm opacity-80">"Context-Aware & Adaptive"</p>
+          <p className="text-center text-sm opacity-80">`Context-Aware & Adaptive`</p>
 
           <h3 className="mt-6 font-semibold">✅ ADVANTAGES:</h3>
           <ul className="mt-3 space-y-2 text-sm">
@@ -66,8 +66,8 @@ const ComparisonSection = () => {
 
           <div className="mt-6 bg-purple-300/20 p-4 rounded-lg text-sm">
             💡 <b>Example:</b> <br />
-            "Sees person + backpack + nervous behavior + restricted area →
-            'Suspicious activity detected' (not just 'backpack detected')"
+            `Sees person + backpack + nervous behavior + restricted area →
+            `Suspicious activity detected` (not just `backpack detected`)`
           </div>
         </div>
       </div>

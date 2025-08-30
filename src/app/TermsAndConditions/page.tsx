@@ -28,8 +28,8 @@ export default function TermsAndConditions() {
                         Terms & Conditions
                     </h1>
                     <p className="text-gray-600 mb-10 text-center">
-                        Welcome to <span className="font-semibold text-black-600">Baktrack</span> ("we," "us," "our").
-                        By using our website, services, and software solution (collectively, the "Service"), you agree to these Terms & Conditions.
+                        Welcome to <span className="font-semibold text-black-600">Baktrack</span> (`we`, `us`, `our`).
+                        By using our website, services, and software solution (collectively, the `Service`), you agree to these Terms & Conditions.
                         Please read them carefully.
                     </p>
 
