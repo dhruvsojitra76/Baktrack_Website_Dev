@@ -348,14 +348,14 @@ export default function ChatSlider() {
             </p>
 
             {/* Slider Navigation */}
-            <div className="flex items-center justify-between w-full max-w-3xl mt-8">
+            <div className="flex items-center justify-between w-full gap-2 max-w-3xl mt-8">
                 <button
                     onClick={prevSlide}
                     className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-700"
                 >
                     ◀ Previous
                 </button>
-                <h3 className="font-semibold text-gray-800">{chats[activeIndex].title}</h3>
+                <h3 className="font-semibold text-center text-gray-800">{chats[activeIndex].title}</h3>
                 <button
                     onClick={nextSlide}
                     className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-700"
