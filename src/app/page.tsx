@@ -1074,7 +1074,7 @@ export default function Home() {
               id="testimonial-1"
               data-animate
             >
-              <p className="text-gray-600 mb-4 italic">&quot;"Baktrack has completely changed how I think about home security. Instead of just recording break-ins, it actually prevents them. The natural language setup was so easy - I just told it what to watch for."&quot;</p>
+              <p className="text-gray-600 mb-4 italic">&quot;Baktrack has completely changed how I think about home security. Instead of just recording break-ins, it actually prevents them. The natural language setup was so easy - I just told it what to watch for.&quot;</p>
               <div className="flex items-center">
                 <div className="bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-semibold mr-3">S</div>
                 <div>
@@ -1089,7 +1089,7 @@ export default function Home() {
               id="testimonial-2"
               data-animate
             >
-              <p className="text-gray-600 mb-4 italic">&quot;What impressed me most is how I can shape this system exactly how I want. I told it to watch for unusual activity around my property and it actually understands what I'm asking for.&quot;</p>
+              <p className="text-gray-600 mb-4 italic">&quot;What impressed me most is how I can shape this system exactly how I want. I told it to watch for unusual activity around my property and it actually understands what I`m asking for.&quot;</p>
               <div className="flex items-center">
                 <div className="bg-green-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-semibold mr-3">M</div>
                 <div>
