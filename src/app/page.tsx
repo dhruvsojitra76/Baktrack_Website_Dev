@@ -314,10 +314,7 @@ export default function Home() {
       <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 via-purple-50 to-blue-100 px-4 md:px-6 relative overflow-hidden mt-[130px]">
         <div className="max-w-6xl mx-auto text-center z-10">
           {/* Main Title */}
-          <h1 className={`text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight ${animatedElements.has("banner-title")
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-              }` }  id='banner-title' data-animate>
+          <h1 className={`text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight `}  id='banner-title' data-animate>
             AI Powered CCTV <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               Copilot
@@ -325,10 +322,7 @@ export default function Home() {
           </h1>
 
           {/* Subtitle */}
-          <p className={`text-base sm:text-lg md:text-2xl text-gray-600 mb-10 max-w-2xl md:max-w-3xl mx-auto leading-relaxed ${animatedElements.has("banner-subtitle")
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-              }` }  id='banner-subtitle' data-animate>
+          <p className={`text-base sm:text-lg md:text-2xl text-gray-600 mb-10 max-w-2xl md:max-w-3xl mx-auto leading-relaxed` }>
             Your Personalized Digital Security Guard
           </p>
 
